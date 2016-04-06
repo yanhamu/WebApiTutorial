@@ -1,0 +1,22 @@
+﻿using System;
+using System.Net.Http;
+
+namespace WebApiTutorial.Services
+{
+    public abstract class MetadataHandler<T> : IMetadataHandler where T : class
+    {
+        public ObjectContent Handle(ObjectContent content)
+        {
+            var x = content.Value as T;
+            Process(x);
+            return content;
+        }
+
+        public bool CanProcess(Type contentType)
+        {
+            return contentType == typeof(T);
+        }
+
+        public abstract void Process(T content);
+    }
+}

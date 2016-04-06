@@ -1,7 +1,9 @@
-﻿using Castle.Windsor;
+﻿using Castle.MicroKernel.Resolvers.SpecializedResolvers;
+using Castle.Windsor;
 using Castle.Windsor.Installer;
 using System.Web.Http;
 using WebApiTutorial.Configuration;
+using WebApiTutorial.Handlers;
 
 namespace WebApiTutorial
 {
@@ -11,13 +13,14 @@ namespace WebApiTutorial
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-
             ConfigureDependencyResolver(GlobalConfiguration.Configuration);
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new MetadataResponseHandler());
         }
 
         private void ConfigureDependencyResolver(HttpConfiguration configuration)
         {
             container = new WindsorContainer();
+            container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel));
             container.Install(FromAssembly.This());
             configuration.DependencyResolver = new WindsorDependencyResolver(container);
         }

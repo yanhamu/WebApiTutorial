@@ -2,6 +2,7 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using System.Web.Http;
+using WebApiTutorial.Services;
 
 namespace WebApiTutorial.Configuration
 {
@@ -17,6 +18,16 @@ namespace WebApiTutorial.Configuration
                 Classes
                     .FromThisAssembly()
                     .Where(c => c.Name.EndsWith("Service"))
+                    .LifestyleTransient(),
+                Classes
+                    .FromThisAssembly()
+                    .BasedOn<IMetadataHandler>()
+                    .WithServiceDefaultInterfaces()
+                    .WithService
+                    .Self()
+                    .LifestyleTransient(),
+                Component
+                    .For<MetadataProcessor>()
                     .LifestyleTransient()
                 );
         }

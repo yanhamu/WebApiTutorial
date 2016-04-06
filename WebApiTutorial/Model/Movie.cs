@@ -8,6 +8,7 @@ namespace WebApiTutorial.Model
         public string Title { get; set; }
         public string Genre { get; set; }
         public List<Director> Directors { get; set; }
+        public string Url { get; set; }
 
         public Movie()
         {
