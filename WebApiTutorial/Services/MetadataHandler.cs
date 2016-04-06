@@ -7,8 +7,7 @@ namespace WebApiTutorial.Services
     {
         public ObjectContent Handle(ObjectContent content)
         {
-            var x = content.Value as T;
-            Process(x);
+            Process(content.Value as T);
             return content;
         }
 

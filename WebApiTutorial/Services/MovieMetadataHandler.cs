@@ -6,7 +6,7 @@ namespace WebApiTutorial.Services
     {
         public override void Process(Movie content)
         {
-            content.Url = "test";
+            content.Url = "api/movies/" + content.Id;
         }
     }
 }
