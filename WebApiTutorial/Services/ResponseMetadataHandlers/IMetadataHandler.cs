@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace WebApiTutorial.Services
+namespace WebApiTutorial.Services.ResponseMetadataHandlers
 {
     public interface IMetadataHandler
     {

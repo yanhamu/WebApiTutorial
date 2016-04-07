@@ -108,20 +108,25 @@
     <Compile Include="Configuration\WindsorDependencyResolver.cs" />
     <Compile Include="Configuration\WindsorDependencyScope.cs" />
     <Compile Include="Configuration\WindsorInstaller.cs" />
+    <Compile Include="Controllers\DirectorsController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handlers\MetadataResponseHandler.cs" />
     <Compile Include="Model\Director.cs" />
+    <Compile Include="Model\Links.cs" />
     <Compile Include="Model\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IMetadataHandler.cs" />
-    <Compile Include="Services\MetadataHandler.cs" />
+    <Compile Include="Services\ResponseMetadataHandlers\DirectorMetadataHandler.cs" />
+    <Compile Include="Services\DirectorService.cs" />
+    <Compile Include="Services\ResponseMetadataHandlers\DirectorsMetadataHandler.cs" />
+    <Compile Include="Services\ResponseMetadataHandlers\IMetadataHandler.cs" />
+    <Compile Include="Services\ResponseMetadataHandlers\MetadataHandler.cs" />
     <Compile Include="Services\MetadataProcessor.cs" />
-    <Compile Include="Services\MovieMetadataHandler.cs" />
+    <Compile Include="Services\ResponseMetadataHandlers\MovieMetadataHandler.cs" />
     <Compile Include="Services\MovieService.cs" />
-    <Compile Include="Services\MoviesMetadataHandler.cs" />
+    <Compile Include="Services\ResponseMetadataHandlers\MoviesMetadataHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

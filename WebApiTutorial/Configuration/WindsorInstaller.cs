@@ -3,6 +3,7 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using System.Web.Http;
 using WebApiTutorial.Services;
+using WebApiTutorial.Services.ResponseMetadataHandlers;
 
 namespace WebApiTutorial.Configuration
 {
@@ -15,10 +16,12 @@ namespace WebApiTutorial.Configuration
                     .FromThisAssembly()
                     .BasedOn<ApiController>()
                     .LifestyleTransient(),
+
                 Classes
                     .FromThisAssembly()
                     .Where(c => c.Name.EndsWith("Service"))
                     .LifestyleTransient(),
+
                 Classes
                     .FromThisAssembly()
                     .BasedOn<IMetadataHandler>()
@@ -26,6 +29,7 @@ namespace WebApiTutorial.Configuration
                     .WithService
                     .Self()
                     .LifestyleTransient(),
+
                 Component
                     .For<MetadataProcessor>()
                     .LifestyleTransient()

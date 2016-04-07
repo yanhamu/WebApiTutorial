@@ -10,6 +10,7 @@ namespace WebApiTutorial.Model
         public string LastName { get; set; }
         [JsonIgnore]
         public List<Movie> Movies { get; set; }
+        public Links Links { get; set; }
         public Director()
         {
             Movies = new List<Movie>();

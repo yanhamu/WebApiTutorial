@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebApiTutorial.Model;
 
-namespace WebApiTutorial.Services
+namespace WebApiTutorial.Services.ResponseMetadataHandlers
 {
     public class MoviesMetadataHandler : MetadataHandler<List<Movie>>
     {

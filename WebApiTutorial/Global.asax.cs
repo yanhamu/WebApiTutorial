@@ -1,6 +1,7 @@
 ﻿using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
+using Newtonsoft.Json.Serialization;
 using System.Web.Http;
 using WebApiTutorial.Configuration;
 using WebApiTutorial.Handlers;
@@ -15,6 +16,8 @@ namespace WebApiTutorial
             GlobalConfiguration.Configure(WebApiConfig.Register);
             ConfigureDependencyResolver(GlobalConfiguration.Configuration);
             GlobalConfiguration.Configuration.MessageHandlers.Add(new MetadataResponseHandler());
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
 
         private void ConfigureDependencyResolver(HttpConfiguration configuration)

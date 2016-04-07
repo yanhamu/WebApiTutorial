@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using WebApiTutorial.Services.ResponseMetadataHandlers;
 
 namespace WebApiTutorial.Services
 {

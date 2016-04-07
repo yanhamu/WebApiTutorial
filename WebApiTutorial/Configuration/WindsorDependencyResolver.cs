@@ -6,7 +6,7 @@ using System.Web.Http.Dependencies;
 
 namespace WebApiTutorial.Configuration
 {
-    public class WindsorDependencyResolver : IDependencyResolver
+    internal sealed class WindsorDependencyResolver : IDependencyResolver
     {
         private IWindsorContainer container;
 
